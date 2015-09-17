@@ -67,9 +67,9 @@ export default function(apiKey, address, cb) {
     cb(v);
   }
 
-  fetchJsonp(mailgun+qs)
+  fetchJsonp(mailgun+qs, {timeout: 2000})
   .then(function(response) {
-    return response.json()
+    return response.json();
   })
   .then((data) => {
     const suggestion = data.did_you_mean;
@@ -84,7 +84,18 @@ export default function(apiKey, address, cb) {
     })
   })
   .catch(function(ex) {
-    console.log('validateEmail failed', ex)
+    console.log('validateEmail failed', address, ex);
+    if (!navigator.onLine) {
+      alert('Please check your internet connection. It looks like you are disconnected.');
+    }
+    // Try another API? kickbox.io / mailboxlayer.com
+    triggerCb({
+      value: address,
+      breakPoint: 'async-error',
+      hasErrors: false,
+      help: 'Looks valid. We were not able to do DNS or SMTP checking.',
+      suggestion: null
+    })
   });
   return {
     value: address,
