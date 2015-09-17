@@ -20,7 +20,7 @@ export default class PreviewText extends Component {
 
     return (
       <div className={classNames(cssClasses, className)}>
-        <button onClick={onClick}>{defaultValue || 'Empty'}</button>
+        <button onClick={onClick} title="click to edit">{defaultValue || 'Empty'}</button>
       </div>
     );
   }

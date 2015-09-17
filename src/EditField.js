@@ -58,7 +58,17 @@ export default class EditField extends Component {
     if (extraHelp) {
       helpTxt += ' ' + extraHelp;
     }
-
+    let helpEl = false;
+    if (helpTxt || suggestion) {
+      helpEl =
+        <Help
+          help={helpTxt}
+          hasErrors={hasErrors}
+          id={id}
+          suggestion={suggestion}
+          onChange={this.handleSuggestion.bind(this)}
+        />
+    }
     // Decide what component the input is.
     const Input = editingFieldTypes(type);
 
@@ -83,13 +93,7 @@ export default class EditField extends Component {
             onClose={onClose}
           />
         </div>
-        <Help
-          help={helpTxt}
-          hasErrors={hasErrors}
-          id={id}
-          suggestion={suggestion}
-          onChange={this.handleSuggestion.bind(this)}
-        />
+        {helpEl}
       </div>
     );
   }
