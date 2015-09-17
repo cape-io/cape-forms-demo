@@ -67,7 +67,7 @@ export default function(apiKey, address, cb) {
     cb(v);
   }
 
-  fetchJsonp(mailgun+qs, {timeout: 2000})
+  fetchJsonp(mailgun+qs, {timeout: 1351})
   .then(function(response) {
     return response.json();
   })

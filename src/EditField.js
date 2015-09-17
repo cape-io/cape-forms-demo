@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classNames'
 
-import editingFieldTypes from './editingFieldTypes'
+import getInputType from './input/getInputType'
 import EditableButtons from './EditableButtons'
 import Help from './Help'
 import Icon from './Icon';
@@ -70,7 +70,7 @@ export default class EditField extends Component {
         />
     }
     // Decide what component the input is.
-    const Input = editingFieldTypes(type);
+    const Input = getInputType(type);
 
     // let warningIcon = false;
     // if (hasErrors) {

@@ -1,10 +1,10 @@
-import InputEmail from './InputEmail'
+import Email from './Email'
 import Text from './Text'
 
 export default function(fieldType) {
   switch (fieldType) {
     case 'email':
-      return InputEmail;
+      return Email;
     default:
   }
 }

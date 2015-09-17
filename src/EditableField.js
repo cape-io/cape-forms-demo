@@ -1,6 +1,8 @@
 import React, { Component, PropTypes, createElement } from 'react';
 import classNames from 'classNames'
 
+import DateTimeField from 'react-bootstrap-datetimepicker'
+
 import FormGroup from './FormGroup';
 import PreviewText from './PreviewText'
 import EditField from './EditField';
@@ -12,6 +14,9 @@ const typeDefaults = {
     id: 'email',
     label: 'Email',
     placeholder: 'you@domain.com'
+  },
+  datetime: {
+    label: 'Date & Time'
   }
 };
 
@@ -21,6 +26,7 @@ export default class EditableField extends Component {
     label: PropTypes.string,
     type: PropTypes.oneOf([
         'email',
+        'datetime',
         'text'
       ]).isRequired,
     editable: PropTypes.bool,
@@ -38,7 +44,12 @@ export default class EditableField extends Component {
     };
   }
   toggleEditing(editing) {
-    this.setState({editing});
+    if (editing) {
+      this.setState({editing});
+    }
+    else {
+      this.setState({editing, status: null});
+    }
   }
   handleValidation(status) {
     if (status !== this.state.status) {
@@ -57,16 +68,23 @@ export default class EditableField extends Component {
     let valueEl = false;
 
     if (editing) {
-      valueEl =
-        <EditField
-          {...other}
-          onSubmit={(v) => {
-            this.toggleEditing(false);
-            onSubmit(v);
-          }}
-          onClose={() => {this.toggleEditing(false)}}
-          onValidation={this.handleValidation.bind(this)}
-        />
+      switch (type) {
+        case 'datetime':
+          valueEl = <DateTimeField />
+          break;
+        default:
+          valueEl =
+            <EditField
+              {...other}
+              onSubmit={(v) => {
+                this.toggleEditing(false);
+                onSubmit(v);
+              }}
+              onClose={() => {this.toggleEditing(false)}}
+              onValidation={this.handleValidation.bind(this)}
+            />
+      }
+
     }
     else {
       valueEl =

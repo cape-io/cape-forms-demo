@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { NICE, SUPER_NICE } from './colors';
 
 import EditableField from './EditableField'
-import DateTimeField from 'react-bootstrap-datetimepicker'
 
 class Counter extends Component {
   constructor(props) {
@@ -67,6 +66,10 @@ export class App extends Component {
               onSubmit={(value) => this.handleInput('email', value)}
               defaultValue={value}
               required={true}
+            />
+            <EditableField
+              type="datetime"
+              onSubmit={(value) => this.handleInput('date', value)}
             />
 
           </div>
