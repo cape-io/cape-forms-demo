@@ -17,8 +17,8 @@ Built with **[babel-plugin-react-transform](https://github.com/gaearon/babel-plu
 ![](http://i.imgur.com/AhGY28T.gif)
 
 ```
-git clone https://github.com/gaearon/react-transform-boilerplate.git
-cd react-transform-boilerplate
+git clone https://github.com/cape-io/cape-forms-demo.git
+cd cape-forms-demo
 npm install
 npm start
 open http://localhost:3000
