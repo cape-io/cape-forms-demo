@@ -1,8 +1,6 @@
 import React, { Component, PropTypes, createElement } from 'react';
 import classNames from 'classNames'
 
-import DateTimeField from 'react-bootstrap-datetimepicker'
-
 import FormGroup from './FormGroup';
 import PreviewText from './PreviewText'
 import EditField from './EditField';
@@ -68,23 +66,16 @@ export default class EditableField extends Component {
     let valueEl = false;
 
     if (editing) {
-      switch (type) {
-        case 'datetime':
-          valueEl = <DateTimeField />
-          break;
-        default:
-          valueEl =
-            <EditField
-              {...other}
-              onSubmit={(v) => {
-                this.toggleEditing(false);
-                onSubmit(v);
-              }}
-              onClose={() => {this.toggleEditing(false)}}
-              onValidation={this.handleValidation.bind(this)}
-            />
-      }
-
+      valueEl =
+        <EditField
+          {...other}
+          onSubmit={(v) => {
+            this.toggleEditing(false);
+            onSubmit(v);
+          }}
+          onClose={() => {this.toggleEditing(false)}}
+          onValidation={this.handleValidation.bind(this)}
+        />
     }
     else {
       valueEl =

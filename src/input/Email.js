@@ -21,14 +21,6 @@ export default class InputEmail extends Component {
     type: 'email'
   }
 
-  // constructor(props) {
-  //   super(props);
-  //   // We can get an initial value from the parent but it should not alter until remount.
-  //   this.state = {
-  //     value: props.value
-  //   };
-  // }
-
   // Check validation on value.
   componentDidMount() {
     const {apiKey, value} = this.props;
@@ -54,7 +46,6 @@ export default class InputEmail extends Component {
     // Validate the input.
     const initResult = validateEmail(apiKey, newValue, this.handleValidateResult.bind(this));
     // Update the value state on this component.
-    // this.setState({value: newValue});
 
     // Pass sync validation results imediately to parent component.
     onChange(initResult);

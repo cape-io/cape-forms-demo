@@ -44,6 +44,7 @@ export default class EditField extends Component {
     }
     // Pass status to parent.
     onValidation(status);
+    // if (this.isMounted()) {}
     this.setState({...result, hasErrors: errs});
   }
   handleSuggestion(newVal) {

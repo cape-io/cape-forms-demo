@@ -38,22 +38,24 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'email',
-      value: 'kai@kaicurry.com'
+      form: {
+        email: 'kai@kaicurry.com',
+        date: null
+      }
     };
   }
 
   handleInput(name, value) {
     console.log(name, value);
-    this.setState({
-      name: name,
-      value: value
-    });
+    const newSt = {form: this.state.form}
+    newSt.form[name] = value;
+    this.setState(newSt);
   }
 
   render() {
-    const {name, value} = this.state;
-    const txt = `{${name || ''}: "${value || ''}"}`
+    const {form} = this.state;
+    const txt = JSON.stringify(form);
+
     return (
       <div className="section">
         <Counter increment={3} color={NICE} />
@@ -64,12 +66,13 @@ export class App extends Component {
             <EditableField
               type="email"
               onSubmit={(value) => this.handleInput('email', value)}
-              defaultValue={value}
+              defaultValue={form.email}
               required={true}
             />
             <EditableField
-              type="datetime"
+              type="dateTime"
               onSubmit={(value) => this.handleInput('date', value)}
+              defaultValue={form.date}
             />
 
           </div>
