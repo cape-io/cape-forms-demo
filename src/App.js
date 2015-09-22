@@ -55,7 +55,13 @@ export class App extends Component {
   render() {
     const {form} = this.state;
     const txt = JSON.stringify(form);
-
+    const validateName = function(val) {
+      const valParts = val.split(' ');
+      if (valParts.length > 1 && valParts.length < 5) {
+        return false;
+      }
+      return true;
+    }
     return (
       <div className="section">
         <Counter increment={3} color={NICE} />
@@ -64,7 +70,17 @@ export class App extends Component {
           <div className="col-md-6">
             <div>{txt}</div>
             <EditableField
+              type="text"
+              id="name"
+              label="Full Name"
+              onSubmit={(value) => this.handleInput('name', value)}
+              defaultValue={form.name}
+              validate={validateName}
+              errorMessage="Please use your full name."
+            />
+            <EditableField
               type="email"
+              id="email"
               onSubmit={(value) => this.handleInput('email', value)}
               defaultValue={form.email}
               required={true}

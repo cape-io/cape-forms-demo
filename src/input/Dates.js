@@ -20,7 +20,7 @@ export default class Dates extends Component {
 
     return (
       <DateTimeField
-        dateTime={defaultValue}
+        dateTime={defaultValue || undefined}
         {...other}
         onChange={this.handleChange.bind(this)}
       />

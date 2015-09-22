@@ -13,7 +13,7 @@ const typeDefaults = {
     label: 'Email',
     placeholder: 'you@domain.com'
   },
-  datetime: {
+  dateTime: {
     label: 'Date & Time'
   }
 };
@@ -24,7 +24,7 @@ export default class EditableField extends Component {
     label: PropTypes.string,
     type: PropTypes.oneOf([
         'email',
-        'datetime',
+        'dateTime',
         'text'
       ]).isRequired,
     editable: PropTypes.bool,

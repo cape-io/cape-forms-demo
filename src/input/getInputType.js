@@ -1,5 +1,6 @@
 import Email from './Email'
 import Dates from './Dates'
+import Text from './Text'
 
 export default function(fieldType) {
   switch (fieldType) {
@@ -8,7 +9,9 @@ export default function(fieldType) {
     case 'date':
     case 'dateTime':
       return Dates;
+    case 'email':
+      return Email
     default:
-      return Email;
+      return Text;
   }
 }
