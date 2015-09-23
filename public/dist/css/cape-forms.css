@@ -1,4 +1,26 @@
+/* Basic layout and color palettes */
 
+body {
+  background-color: #fcfdfc;
+  color: #606867;
+}
+
+
+
+
+/** ======================== **/
+/** ======================== **/
+/** ======================== **/
+/** ======================== **/
+/** ======================== **/
+/** ======================== **/
+/** ======================== **/
+
+
+
+
+
+/* Universal helpers */
 .mlrauto {
     margin-left:  auto;
     margin-right: auto;
@@ -8,6 +30,21 @@
   max-width: 42em;
   padding: 1em;
 }
+
+
+
+
+
+/** ======================== **/
+/** ======================== **/
+/** ======================== **/
+/** ======================== **/
+/** ======================== **/
+/** ======================== **/
+/** ======================== **/
+
+
+
 
 /** button outline options? **/
 .btn-outline,
@@ -35,10 +72,29 @@
   opacity: .5;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 /** Actual beginning styles **/
 .sample-output {
   margin-bottom: 2em;
 }
+
+.editable-fixed-value {
+  color: #848478;
+  displaY:inline-block;
+  padding-top: 7px;
+}
+
 .editable-input {
     position: relative;
 }
@@ -84,6 +140,8 @@ button.input-clear-x {
   border-bottom-width: 1px;
   border-bottom-color: currentColor;
   border-radius: 0;
+  padding: 0;
+  padding-top: 7px;
   padding-bottom: .1em;
 }
 
