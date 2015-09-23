@@ -54,6 +54,12 @@ header {
 
 
 /** button outline options? **/
+.editable-row::after {
+  clear:both;
+  display: table;
+  content:'';
+}
+
 .btn-outline,
 .btn-outline:hover {
   border-color: currentColor;
@@ -88,8 +94,21 @@ header {
 
 
 
+/** override some bootstrap stuff **/
+.form-control {
+  color: #606867;
+}
 
+.form-control:focus {
+  border-color: #606867;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 
+.has-feedback .form-control {
+  padding-right: 0;
+}
 
 /** Actual beginning styles **/
 .sample-output {
@@ -103,12 +122,24 @@ header {
 }
 
 .editable-input {
-    position: relative;
+  position: relative;
 }
 button.input-clear-x {
-    position: absolute;
-    right: 0;
-    top: 0;
+  position: absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  /**/
+  border:none;
+  background: transparent;
+  color: #606867;
+  /**/
+  width:3rem;
+}
+button.input-clear-x:hover {
+  border:none;
+  background: transparent;
+  color: #606867;
 }
 
 .form-value button {
@@ -151,6 +182,20 @@ button.input-clear-x {
   padding: 0;
   padding-top: 7px;
   padding-bottom: .1em;
+}
+
+.btn.editable-submit,
+.btn.editable-close {
+  height: 3rem;
+  color:white;
+}
+
+.btn.editable-submit {
+  background-color: #8ba573;
+}
+
+.btn.editable-close {
+  background-color: #c5c065;
 }
 
 .editable-input {

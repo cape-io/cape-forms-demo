@@ -12,7 +12,7 @@ export default class EditableButtons extends Component {
     return (
       <div className="editable-buttons">
         <button
-          className="btn btn-success btn-sm editable-submit"
+          className="btn btn-sm editable-submit"
           disabled={disabled}
           type="submit"
           onClick={(e) => {
@@ -23,7 +23,7 @@ export default class EditableButtons extends Component {
           <Icon symbol="ok" />
         </button>
         <button
-          className="btn btn-warning btn-sm editable-close"
+          className="btn btn-sm editable-close"
           type="button"
           onClick={onClose}
         >
