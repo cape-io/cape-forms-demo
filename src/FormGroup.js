@@ -26,7 +26,7 @@ export default class FormGroup extends Component {
     let labelEl = false;
     if (label) {
       const labelStr = `${label}: `
-      labelEl = <label className="control-label" htmlFor={id}>
+      labelEl = <label className="control-label col-md-3" htmlFor={id}>
         {labelStr}
         {required ? ' *' : false}
       </label>

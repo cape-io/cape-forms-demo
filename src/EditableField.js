@@ -86,7 +86,7 @@ export default class EditableField extends Component {
     }
 
     return (
-      <form className="editable-form" onSubmit={(e) => {e.preventDefault(e)}}>
+      <form className="editable-form form-horizontal" onSubmit={(e) => {e.preventDefault(e)}}>
         <FormGroup id={id} label={label} editable={editable} required={required} status={status}>
           {valueEl}
         </FormGroup>
