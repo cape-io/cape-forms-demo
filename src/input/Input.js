@@ -68,6 +68,7 @@ export default class Input extends Component {
       <div className="editable-input">
         <input
           {...other}
+          autoFocus
           aria-describedby={`${id}-helpBlock`}
           onChange={e => this.handleChange(e)}
           onBlur={e => this.handleChange(e)}

@@ -70,6 +70,8 @@ export class App extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="sample-output">{txt}</div>
+            <h2>Profile</h2>
+            <p>Click to edit</p>
             <div className="nice-form col-md-12">
 
               <EditableField
