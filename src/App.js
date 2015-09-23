@@ -87,6 +87,7 @@ export class App extends Component {
             />
             <EditableField
               type="dateTime"
+              label="Birthday"
               onSubmit={(value) => this.handleInput('date', value)}
               defaultValue={form.date}
             />

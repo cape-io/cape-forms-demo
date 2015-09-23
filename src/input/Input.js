@@ -56,6 +56,13 @@ export default class Input extends Component {
 
   render() {
     const {id, onChange, ...other} = this.props;
+    const clearEl =
+      <button
+        type="button"
+        title="Clear input value"
+        className="input-clear-x btn btn-default btn-xs"
+        onClick={() => this.changeValue('')}
+      > x </button>
 
     return (
       <div className="editable-input">
@@ -67,7 +74,7 @@ export default class Input extends Component {
           id={id}
           ref={id}
         />
-        <button type="button" className="input-clear-x btn btn-default btn-xs" onClick={() => this.changeValue('')}>x</button>
+        {other.value ? clearEl : false}
       </div>
     );
   }
