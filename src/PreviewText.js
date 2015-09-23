@@ -17,16 +17,25 @@ export default class PreviewText extends Component {
       'editable-empty': !defaultValue,
       'form-value': true
     };
-    const previewButtonEl =
-      <button
-        className="btn btn-secret"
-        onClick={onClick}
-        title="click to edit"
-      >{defaultValue || 'Empty'}</button>
+    let previewEl = false;
+    if (editable) {
+      previewEl =
+        <button
+          className="btn btn-secret"
+          onClick={onClick}
+          title="click to edit"
+        >{defaultValue || 'Empty'}</button>
+    }
+    else {
+      previewEl =
+        <span className="editable-fixed-value">
+          {defaultValue}
+        </span>
+    }
 
     return (
       <div className={classNames(cssClasses, className)}>
-        {editable ? previewButtonEl : defaultValue}
+        {previewEl}
       </div>
     );
   }
