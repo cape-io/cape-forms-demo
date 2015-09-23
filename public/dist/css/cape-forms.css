@@ -1,11 +1,18 @@
 /* Basic layout and color palettes */
 
 body {
-  background-color: #fcfdfc;
+  background-color: #f9fbf8;
   color: #606867;
 }
 
+.wrapper { padding-top: 1px; }
 
+header {
+  background: white;
+  padding: 1em;
+  text-align: center;
+  margin-bottom: 2em;
+}
 
 
 /** ======================== **/
@@ -105,29 +112,30 @@ button.input-clear-x {
 }
 
 .form-value button {
-  color:blue;
-}
-.editable-empty button {
-  font-style: italic;
-  color:red;
+  color: #5c7fc1;
 }
 
 .form-value button:hover {
-  color: darkblue;
+  color: #3c5e9d;
 }
 
 .form-value button:active,
 .form-value button:focus {
-  color: midnightblue;
+  color: #29406c;
+}
+
+.editable-empty button {
+  font-style: italic;
+  color: #c37363;
 }
 
 .editable-empty button:hover {
-  color: darkred;
+  color: #b05644;
 }
 
 .editable-empty button:active,
 .editable-empty button:focus {
-  color: firebrick;
+  color: #8b4435;
 }
 
 .btn-secret {
