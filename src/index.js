@@ -1,4 +1,14 @@
 import React from 'react';
-import { App } from './App';
+import { Provider } from 'react-redux';
 
-React.render(<App />, document.getElementById('root'));
+import { App } from './App';
+import configureStore from './redux/configureStore';
+
+const store = configureStore();
+
+React.render(
+  <Provider store={store}>
+    {() => <App />}
+  </Provider>,
+  document.getElementById('root')
+);
