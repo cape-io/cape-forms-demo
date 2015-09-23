@@ -19,7 +19,7 @@ export default class PreviewText extends Component {
     };
     const previewButtonEl =
       <button
-        className="btn btn-default btn-outline"
+        className="btn btn-secret"
         onClick={onClick}
         title="click to edit"
       >{defaultValue || 'Empty'}</button>

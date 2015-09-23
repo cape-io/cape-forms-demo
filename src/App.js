@@ -64,42 +64,45 @@ export class App extends Component {
       return true;
     }
     return (
-      <div className="section">
+      <div className="section good-width mlrauto">
         <Counter increment={3} color={NICE} />
         <Counter increment={2} color={SUPER_NICE} />
-        <div className="row">
-          <div className="col-md-6">
-            <div>{txt}</div>
-            <EditableField
-              type="text"
-              id="id"
-              label="User Id"
-              defaultValue={form.id}
-              editable={false}
-            />
-            <EditableField
-              type="text"
-              id="name"
-              label="Full Name"
-              onSubmit={(value) => this.handleInput('name', value)}
-              defaultValue={form.name}
-              validate={validateName}
-              errorMessage="Please use your full name."
-            />
-            <EditableField
-              type="email"
-              id="email"
-              onSubmit={(value) => this.handleInput('email', value)}
-              defaultValue={form.email}
-              required={true}
-            />
-            <EditableField
-              type="dateTime"
-              label="Birthday"
-              onSubmit={(value) => this.handleInput('date', value)}
-              defaultValue={form.date}
-            />
+        <div className="container-fluid">
+          <div className="row">
+            <div className="sample-output">{txt}</div>
+            <div className="nice-form col-md-12">
 
+              <EditableField
+                type="text"
+                id="id"
+                label="User Id"
+                defaultValue={form.id}
+                editable={false}
+              />
+              <EditableField
+                type="text"
+                id="name"
+                label="Full Name"
+                onSubmit={(value) => this.handleInput('name', value)}
+                defaultValue={form.name}
+                validate={validateName}
+                errorMessage="Please use your full name."
+              />
+              <EditableField
+                type="email"
+                id="email"
+                onSubmit={(value) => this.handleInput('email', value)}
+                defaultValue={form.email}
+                required={true}
+              />
+              <EditableField
+                type="dateTime"
+                label="Birthday"
+                onSubmit={(value) => this.handleInput('date', value)}
+                defaultValue={form.date}
+              />
+
+            </div>
           </div>
         </div>
       </div>

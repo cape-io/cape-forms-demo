@@ -1,4 +1,14 @@
 
+.mlrauto {
+    margin-left:  auto;
+    margin-right: auto;
+}
+
+.good-width {
+  max-width: 42em;
+  padding: 1em;
+}
+
 /** button outline options? **/
 .btn-outline,
 .btn-outline:hover {
@@ -25,22 +35,51 @@
   opacity: .5;
 }
 
+/** Actual beginning styles **/
+.sample-output {
+  margin-bottom: 2em;
+}
 .editable-input {
     position: relative;
 }
-
 button.input-clear-x {
     position: absolute;
     right: 0;
     top: 0;
-    margin: .33333333em;
 }
 
 .form-value button {
   color:green;
 }
-
 .editable-empty button {
   font-style: italic;
   color:red;
+}
+
+.form-value button:hover {
+  color: forestgreen;
+  text-decoration: underline;
+}
+
+.form-value button:active,
+.form-value button:focus {
+  color: darkolivegreen;
+}
+
+.editable-empty button:hover {
+  color: darkred;
+  text-decoration: underline;
+}
+
+.editable-empty button:active,
+.editable-empty button:focus {
+  color: firebrick;
+}
+
+
+.btn-secret {
+  background: transparent;
+  background-color: none;
+  background-image: none;
+  border: none;
 }
