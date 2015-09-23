@@ -67,7 +67,7 @@ export default class Input extends Component {
           id={id}
           ref={id}
         />
-        <button type="button" className="input-clear-x" onClick={() => this.changeValue('')}>x</button>
+        <button type="button" className="input-clear-x btn btn-default btn-xs" onClick={() => this.changeValue('')}>x</button>
       </div>
     );
   }
