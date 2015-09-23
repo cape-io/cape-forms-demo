@@ -40,7 +40,8 @@ export class App extends Component {
     this.state = {
       form: {
         email: 'kai@kaicurry.com',
-        date: null
+        date: null,
+        id: 'x245'
       }
     };
   }
@@ -71,6 +72,13 @@ export class App extends Component {
             <div>{txt}</div>
             <EditableField
               type="text"
+              id="id"
+              label="User Id"
+              defaultValue={form.id}
+              editable={false}
+            />
+            <EditableField
+              type="text"
               id="name"
               label="Full Name"
               onSubmit={(value) => this.handleInput('name', value)}
@@ -87,6 +95,7 @@ export class App extends Component {
             />
             <EditableField
               type="dateTime"
+              label="Birthday"
               onSubmit={(value) => this.handleInput('date', value)}
               defaultValue={form.date}
             />

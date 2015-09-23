@@ -59,8 +59,8 @@ export default class EditableField extends Component {
     const type = this.props.type;
     // Combine props over defaults.
     const props = {...typeDefaults[type], ...this.props};
-    const {editable, label, onSubmit, ...other} = props;
-    const {id, name, required} = other;
+    const {label, onSubmit, ...other} = props;
+    const {editable, id, name, required} = other;
     const {editing, status} = this.state;
 
     let valueEl = false;
