@@ -68,6 +68,11 @@ header {
 .form-control {
   font-size: inherit;
 }
+
+.form-horizontal .control-label {
+  padding: .5em;
+}
+
 .form-control {
   color: #606867;
 }
@@ -144,13 +149,13 @@ form.editable-form {
 
 .editable-form.col-md-9 {
   padding-left:0;
-  margin-top: -.25em;
+  margin-top: -.33em;
 }
 
 .editable-fixed-value {
   color: #848478;
   displaY:inline-block;
-  padding-top: .33em;
+  padding-top: .5em;
 }
 
 .editable-input {
@@ -213,7 +218,7 @@ button.input-clear-x:hover {
   border-bottom-color: currentColor;
   border-radius: 0;
   padding: 0;
-  padding-top: .33em;
+  padding-top: .5em;
   padding-bottom: .1em;
 }
 
@@ -258,7 +263,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     outline: none;
     height: 3rem;
     width: 100%;
-    padding: .33em 0 0 0;
+    padding: .5em 0 0 0;
     box-shadow: none;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
