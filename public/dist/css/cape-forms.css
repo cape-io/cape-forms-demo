@@ -1,4 +1,5 @@
 /* Basic layout and color palettes */
+/* Document level adjustments */
 
 body {
   background-color: #f9fbf8;
@@ -29,12 +30,12 @@ header {
 
 /* Universal helpers */
 .mlrauto {
-    margin-left:  auto;
-    margin-right: auto;
+  margin-left:  auto;
+  margin-right: auto;
 }
 
 .good-width {
-  max-width: 42em;
+  max-width: 40em;
   padding: 1em;
 }
 
@@ -53,38 +54,6 @@ header {
 
 
 
-/** button outline options? **/
-.editable-row::after {
-  clear:both;
-  display: table;
-  content:'';
-}
-
-.btn-outline,
-.btn-outline:hover {
-  border-color: currentColor;
-}
-
-.btn-outline {
-  border-radius: .33em;
-}
-
-.btn-outline:hover {
-  box-shadow: inset 0 0 0 20rem var(--darken-1);
-}
-
-.btn-outline:active {
-  box-shadow:
-    inset 0 0 0 20rem var(--darken-2),
-    inset 0 3px 4px 0 var(--darken-3),
-    0 0 1px var(--darken-2);
-}
-
-.btn-outline:disabled,
-.btn-outline.is-disabled {
-  opacity: .5;
-}
-
 
 
 
@@ -95,6 +64,10 @@ header {
 
 
 /** override some bootstrap stuff **/
+.btn,
+.form-control {
+  font-size: inherit;
+}
 .form-control {
   color: #606867;
 }
@@ -159,15 +132,31 @@ header {
   margin-bottom: 2em;
 }
 
+.editable-row::after {
+  clear:both;
+  display: table;
+  content:'';
+}
+
+form.editable-form {
+  margin-bottom: 1.5em;
+}
+
+.editable-form.col-md-9 {
+  padding-left:0;
+  margin-top: -.25em;
+}
+
 .editable-fixed-value {
   color: #848478;
   displaY:inline-block;
-  padding-top: 7px;
+  padding-top: .33em;
 }
 
 .editable-input {
   position: relative;
 }
+
 button.input-clear-x {
   position: absolute;
   top:0;
@@ -224,7 +213,7 @@ button.input-clear-x:hover {
   border-bottom-color: currentColor;
   border-radius: 0;
   padding: 0;
-  padding-top: 7px;
+  padding-top: .33em;
   padding-bottom: .1em;
 }
 
@@ -243,16 +232,18 @@ button.input-clear-x:hover {
 }
 
 .editable-input {
-    width: 70%;
-    float: left;
+  width: 75%;
+  float: left;
 }
 
 .editable-buttons {
-    width: 30%;
-    float: left;
+  width: 25%;
+  float: left;
 }
 
-
+.editable-buttons button {
+  margin-left: .3333rem;
+}
 
 /******
   Trying to make some nice looking form inputs
@@ -266,8 +257,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     outline: none;
     height: 3rem;
     width: 100%;
-    margin: 0 -15px;
-    padding: 0;
+    padding: .33em 0 0 0;
     box-shadow: none;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
