@@ -49,7 +49,7 @@ button.input-clear-x {
 }
 
 .form-value button {
-  color:green;
+  color:blue;
 }
 .editable-empty button {
   font-style: italic;
@@ -57,18 +57,16 @@ button.input-clear-x {
 }
 
 .form-value button:hover {
-  color: forestgreen;
-  text-decoration: underline;
+  color: darkblue;
 }
 
 .form-value button:active,
 .form-value button:focus {
-  color: darkolivegreen;
+  color: midnightblue;
 }
 
 .editable-empty button:hover {
   color: darkred;
-  text-decoration: underline;
 }
 
 .editable-empty button:active,
@@ -76,10 +74,25 @@ button.input-clear-x {
   color: firebrick;
 }
 
-
 .btn-secret {
   background: transparent;
   background-color: none;
   background-image: none;
   border: none;
+  text-decoration: none;
+  border-bottom-style: dashed ;
+  border-bottom-width: 1px;
+  border-bottom-color: currentColor;
+  border-radius: 0;
+  padding-bottom: .1em;
+}
+
+.editable-input {
+    width: 70%;
+    float: left;
+}
+
+.editable-buttons {
+    width: 30%;
+    float: left;
 }
