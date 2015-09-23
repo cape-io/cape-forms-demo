@@ -35,7 +35,7 @@ header {
 }
 
 .good-width {
-  max-width: 40em;
+  max-width: 42em;
   padding: 1em;
 }
 
@@ -231,7 +231,8 @@ button.input-clear-x:hover {
   background-color: #c5c065;
 }
 
-.editable-input {
+.editable-input,
+.input-group.date {
   width: 75%;
   float: left;
 }
