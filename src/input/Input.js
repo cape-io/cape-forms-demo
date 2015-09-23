@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Icon from '../Icon';
 
 // Simple wrapper around an input field.
 // 1. Checks for changes every 300ms. Useful for safari autocomplete.
@@ -60,9 +61,11 @@ export default class Input extends Component {
       <button
         type="button"
         title="Clear input value"
-        className="input-clear-x btn btn-default btn-xs"
+        className="input-clear-x btn btn-sm"
         onClick={() => this.changeValue('')}
-      > x </button>
+      >
+        <Icon symbol="remove" />
+      </button>
 
     return (
       <div className="editable-input">

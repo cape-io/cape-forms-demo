@@ -27,7 +27,7 @@ export default class EditableButtons extends Component {
           type="button"
           onClick={onClose}
         >
-          <Icon symbol="remove" />
+          <Icon symbol="ban-circle" />
         </button>
       </div>
     );
