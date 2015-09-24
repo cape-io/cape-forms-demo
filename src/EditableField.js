@@ -1,5 +1,5 @@
 import React, { Component, PropTypes, createElement } from 'react';
-import classNames from 'classNames'
+import classNames from 'classnames'
 
 import FormGroup from './FormGroup';
 import PreviewText from './PreviewText'

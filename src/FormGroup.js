@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import classNames from 'classNames'
+import classNames from 'classnames'
 
 // Editable formGroup.
 

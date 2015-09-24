@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classNames'
+import classNames from 'classnames'
 
 import getInputType from './input/getInputType'
 import EditableButtons from './EditableButtons'
