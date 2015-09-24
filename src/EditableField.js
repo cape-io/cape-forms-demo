@@ -1,8 +1,8 @@
 import React, { Component, PropTypes, createElement } from 'react';
-import classNames from 'classnames'
+import classNames from 'classnames';
 
 import FormGroup from './FormGroup';
-import PreviewText from './PreviewText'
+import PreviewText from './PreviewText';
 import EditField from './EditField';
 
 const typeDefaults = {
@@ -18,22 +18,7 @@ const typeDefaults = {
   }
 };
 
-export default class EditableField extends Component {
-  static propTypes = {
-    id: PropTypes.string,
-    label: PropTypes.string,
-    type: PropTypes.oneOf([
-        'email',
-        'dateTime',
-        'text'
-      ]).isRequired,
-    editable: PropTypes.bool,
-    value: PropTypes.string
-  }
-  static defaultProps = {
-    editable: true,
-    type: 'text'
-  }
+class EditableField extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -94,3 +79,19 @@ export default class EditableField extends Component {
     );
   }
 }
+EditableField.defaultProps = {
+  editable: true,
+  type: 'text'
+}
+EditableField.propTypes = {
+  id: PropTypes.string,
+  label: PropTypes.string,
+  type: PropTypes.oneOf([
+      'email',
+      'dateTime',
+      'text'
+    ]).isRequired,
+  editable: PropTypes.bool,
+  value: PropTypes.string
+}
+export default EditableField
