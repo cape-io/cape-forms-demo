@@ -59,6 +59,26 @@ export default class Input extends Component {
     console.log('clear');
     this.changeValue('');
   }
+  handleKeyDown(e) {
+    const {onClose, onNext} = this.props;
+    switch (e.keyCode) {
+      // escape key.
+      case 27:
+        if (onClose) {
+          e.preventDefault();
+          onClose();
+        }
+        break;
+      case 9:
+        if (onNext) {
+          e.preventDefault();
+          onNext();
+        }
+      default:
+    }
+    // return 13
+    // tab 9
+  }
   render() {
     const {id, onChange, value, ...other} = this.props;
     let clearEl = false
@@ -73,13 +93,15 @@ export default class Input extends Component {
     }
 
     return (
+      // Is a blur the same as a save?
       <div className="editable-input">
         <input
           {...other}
           autoFocus
           aria-describedby={`${id}-helpBlock`}
-          onChange={e => this.handleChange(e)}
-          onBlur={e => this.handleChange(e)}
+          onKeyDown={this.handleKeyDown.bind(this)}
+          onChange={this.handleChange.bind(this)}
+          onBlur={this.handleChange.bind(this)}
           id={id}
         />
         {clearEl}

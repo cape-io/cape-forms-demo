@@ -41,6 +41,7 @@
     "express": "4.13.x",
     "jsdom": "^6.5.1",
     "react-transform-hmr": "^1.0.0",
+    "redbox-react": "^1.1.0",
     "webpack": "1.9.x",
     "webpack-dev-middleware": "1.2.x",
     "webpack-hot-middleware": "2.0.x"

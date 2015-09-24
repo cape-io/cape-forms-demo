@@ -86,6 +86,7 @@ export default class EditField extends Component {
             className="form-control"
             id={id}
             onChange={this.handleChange.bind(this)}
+            onClose={onClose}
             value={value}
           />
           <EditableButtons
