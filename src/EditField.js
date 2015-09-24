@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames'
 
 import getInputType from './input/getInputType'
-import EditableButtons from './EditableButtons'
+import EditableButtons from './Buttons'
 import Help from './Help'
 import Icon from './Icon';
 
