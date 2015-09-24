@@ -79,7 +79,7 @@ export default class EditField extends Component {
     // }
 
     return (
-      <div className={classNames("editable-form col-md-9", className)}>
+      <div className={classNames('editable-form col-md-9', className)}>
         <div className="editable-row">
           <Input
             {...other}
