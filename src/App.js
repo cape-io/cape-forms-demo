@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NICE, SUPER_NICE } from './colors';
 
-import EditableField from './EditableField'
+import EditableField from './editable-fields/EditableField'
 
 class Counter extends Component {
   constructor(props) {
