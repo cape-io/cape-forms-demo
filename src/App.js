@@ -66,7 +66,6 @@ export class App extends Component {
     return (
       <div className="wrapper">
         <header>
-          <Counter increment={3} color={NICE} />
           <Counter increment={2} color={SUPER_NICE} />
         </header>
         <div className="section good-width mlrauto">

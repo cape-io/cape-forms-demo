@@ -13,7 +13,7 @@ export default class Text extends Component {
     let helpTxt = help;
     if (validate) {
       hasErrors = validate(value);
-      console.log('errors', hasErrors);
+      // console.log('errors', hasErrors);
       helpTxt = errorMessage;
     }
     else {

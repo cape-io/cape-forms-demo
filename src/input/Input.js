@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import Icon from '../Icon';
 
 // Simple wrapper around an input field.
 // 1. Checks for changes every 300ms. Useful for safari autocomplete.
@@ -8,6 +7,7 @@ import Icon from '../Icon';
 export default class Input extends Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
+    // Needed in place of refs.
     id: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     value: PropTypes.string
@@ -47,25 +47,30 @@ export default class Input extends Component {
   // The function that is called every interval.
   tick() {
     const {id} = this.props;
-    // Get the form field value.
-    const fieldVal = this.refs[id].getDOMNode().value;
+    // Get the form field value. Not using refs so it's usable with Redux...
+    // const fieldVal = this.refs[id].getDOMNode().value;
+    const fieldVal = document.getElementById(id).value
     // If the field has a value send it off.
     if (fieldVal) {
       this.changeValue(fieldVal);
     }
   }
-
+  clearInputValue() {
+    console.log('clear');
+    this.changeValue('');
+  }
   render() {
-    const {id, onChange, ...other} = this.props;
-    const clearEl =
-      <button
-        type="button"
-        title="Clear input value"
-        className="input-clear-x btn btn-sm"
-        onClick={() => this.changeValue('')}
-      >
-        <Icon symbol="remove" />
-      </button>
+    const {id, onChange, value, ...other} = this.props;
+    let clearEl = false
+    if (value) {
+      clearEl =
+        <button
+          type="button"
+          title="Clear input value"
+          className="input-clear-x btn btn-default btn-xs"
+          onClick={this.clearInputValue.bind(this)}
+        > x </button>
+    }
 
     return (
       <div className="editable-input">
@@ -76,9 +81,8 @@ export default class Input extends Component {
           onChange={e => this.handleChange(e)}
           onBlur={e => this.handleChange(e)}
           id={id}
-          ref={id}
         />
-        {other.value ? clearEl : false}
+        {clearEl}
       </div>
     );
   }
