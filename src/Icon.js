@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames'
 
 export default class Icon extends Component {
   static propTypes = {
@@ -10,9 +11,13 @@ export default class Icon extends Component {
   }
   render() {
     const {symbol, className, hidden} = this.props;
-    const classStr = `glyphicon glyphicon-${symbol} ${className}`
+    const classStr = `glyphicon glyphicon-${symbol}`
+
     return (
-      <span className={classStr} aria-hidden={hidden}></span>
+      <span
+        className={classNames(classStr, className)}
+        aria-hidden={hidden}
+      />
     );
   }
 }
