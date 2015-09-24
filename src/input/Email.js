@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import validateEmail from './validateEmail';
+import validateEmail from 'email-validate';
 import Input from './Input'
 
 // An email validation wrapper around text input.
