@@ -44,7 +44,18 @@ export default class Input extends Component {
     // Pass it along.
     this.changeValue(newValue);
   }
-
+  handleBlur(e) {
+    const newValue = e.target.value;
+    const {onClose} = this.props;
+    // Save value.
+    if (newValue) {
+      // submit.
+    }
+    // Empty value. Just close the form.
+    else {
+      onClose();
+    }
+  }
   // The function that is called every interval.
   tick() {
     const {id} = this.props;
@@ -57,7 +68,7 @@ export default class Input extends Component {
     }
   }
   clearInputValue() {
-    console.log('clear');
+    //console.log('clear');
     this.changeValue('');
   }
   handleKeyDown(e) {
@@ -104,7 +115,7 @@ export default class Input extends Component {
           aria-describedby={`${id}-helpBlock`}
           onKeyDown={this.handleKeyDown.bind(this)}
           onChange={this.handleChange.bind(this)}
-          onBlur={this.handleChange.bind(this)}
+          onBlur={this.handleBlur.bind(this)}
           id={id}
           value={value}
         />
