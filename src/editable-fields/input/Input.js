@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Icon from '../Icon';
 
 // Simple wrapper around an input field.
 // 1. Checks for changes every 300ms. Useful for safari autocomplete.
@@ -89,7 +90,9 @@ export default class Input extends Component {
           title="Clear input value"
           className="input-clear-x btn btn-default btn-xs"
           onClick={this.clearInputValue.bind(this)}
-        > x </button>
+        >
+          <Icon symbol="remove" />
+        </button>
     }
 
     return (
@@ -103,6 +106,7 @@ export default class Input extends Component {
           onChange={this.handleChange.bind(this)}
           onBlur={this.handleChange.bind(this)}
           id={id}
+          value={value}
         />
         {clearEl}
       </div>
