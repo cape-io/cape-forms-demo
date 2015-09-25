@@ -13,6 +13,7 @@ module.exports = {
     publicPath: '/static/'
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
@@ -20,6 +21,7 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
+      exclude: /node_modules/,
       include: path.join(__dirname, 'src')
     }]
   }
