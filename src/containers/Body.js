@@ -4,11 +4,14 @@ import Counter from '../components/Counter';
 
 export default class Body extends Component {
   render() {
-    const { hi, ...other } = this.props;
+    const { count, counter } = this.props;
     return (
       <div className="wrapper">
         <header>
-          <Counter {...other} />
+          <Counter
+            count={count}
+            {...counter}
+          />
         </header>
       </div>
     )

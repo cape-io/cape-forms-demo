@@ -16,10 +16,10 @@ class Counter extends Component {
   }
 
   render() {
-    const { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
+    const { increment, incrementIfOdd, incrementAsync, decrement, count } = this.props;
     return (
       <div>
-        <h3>Counter: {counter}</h3>
+        <h3>Counter: {count}</h3>
         <p>
           <button onClick={increment}>+</button>
           {' '}
@@ -39,7 +39,7 @@ Counter.propTypes = {
   incrementIfOdd: PropTypes.func.isRequired,
   incrementAsync: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
-  counter: PropTypes.number.isRequired
+  count: PropTypes.number.isRequired
 };
 
 export default Counter;

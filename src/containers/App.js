@@ -6,12 +6,15 @@ import * as CounterActions from '../actions/counter';
 // This is where we define computed fields (reselect module) or make other changes.
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    count: state.counter
   };
 }
 
+// This gets merged into props too.
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(CounterActions, dispatch);
+  return {
+    counter: bindActionCreators(CounterActions, dispatch)
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Body);
