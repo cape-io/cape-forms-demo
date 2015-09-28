@@ -1,19 +1,19 @@
-import {  } from 'redux';
-import { connect } from 'react-redux';
-import Body from './Body';
+import React, { Component, PropTypes } from 'react';
 
-// This is where we define computed fields (reselect module) or make other changes.
-function mapStateToProps(state) {
-  return {
-    count: state.counter
-  };
-}
+import Counter from './Counter';
 
-// This gets merged into props too.
-// Not sure why it needs to happen here.
-function mapDispatchToProps(dispatch) {
-  return {
+// I'd like for this to be the index file.
+
+class App extends Component {
+  render() {
+    return (
+      <div className="wrapper">
+        <header>
+          <Counter />
+        </header>
+      </div>
+    )
   }
 }
 
-export default connect(mapStateToProps)(Body);
+export default App;

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
+import form from './form';
 
 const rootReducer = combineReducers({
-  counter
+  counter,
+  form
 });
 
 export default rootReducer;

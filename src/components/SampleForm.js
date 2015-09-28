@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import EditableField from './editable-fields'
+import EditableField from '../editable-fields'
 
 export default class Sampleform extends Component {
   constructor(props) {
