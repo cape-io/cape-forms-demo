@@ -1,7 +1,6 @@
-import { bindActionCreators } from 'redux';
+import {  } from 'redux';
 import { connect } from 'react-redux';
 import Body from './Body';
-import * as CounterActions from '../actions/counter';
 
 // This is where we define computed fields (reselect module) or make other changes.
 function mapStateToProps(state) {
@@ -11,10 +10,10 @@ function mapStateToProps(state) {
 }
 
 // This gets merged into props too.
+// Not sure why it needs to happen here.
 function mapDispatchToProps(dispatch) {
   return {
-    counter: bindActionCreators(CounterActions, dispatch)
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Body);
+export default connect(mapStateToProps)(Body);

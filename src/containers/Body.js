@@ -1,19 +1,31 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
 
 import Counter from '../components/Counter';
 
-export default class Body extends Component {
+import * as CounterActions from '../actions/counter';
+
+class Body extends Component {
   render() {
-    const { count, counter } = this.props;
+    const { count, dispatch } = this.props;
+    const countActions = bindActionCreators(CounterActions, dispatch);
+
     return (
       <div className="wrapper">
         <header>
           <Counter
             count={count}
-            {...counter}
+            {...countActions}
           />
         </header>
+
       </div>
     )
   }
 }
+
+Body.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
+
+export default Body;
