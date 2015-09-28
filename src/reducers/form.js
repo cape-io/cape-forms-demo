@@ -1,11 +1,11 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter';
+import { UPDATE_FIELD } from '../actions/form';
 
-export default function counter(state = 10, action) {
+export default function form(state = {}, action) {
   switch (action.type) {
-  case INCREMENT_COUNTER:
-    return state + 1;
-  case DECREMENT_COUNTER:
-    return state - 1;
+  case UPDATE_FIELD:
+    const fieldUpdate = {};
+    fieldUpdate[action.payload.id] = action.payload.value;
+    return {...state, ...fieldUpdate};
   default:
     return state;
   }

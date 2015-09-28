@@ -1,32 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import EditableField from '../editable-fields'
 
-export default class Sampleform extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      form: {
-        email: 'kai@kaicurry.com',
-        date: null,
-        id: 'x245'
-      }
-    };
-  }
-
-  handleInput(name, value) {
-    console.log(name, value);
-    const newSt = {form: this.state.form}
-    newSt.form[name] = value;
-    this.setState(newSt);
-  }
+class Sampleform extends Component {
 
   render() {
-    const {form} = this.state;
+    const {form, updateField} = this.props;
     const txt = JSON.stringify(form);
     const validateName = function(val) {
       const valParts = val.split(' ');
-      if (valParts.length > 1 && valParts[0].length > 1 && valParts[1].length > 1 && valParts.length < 5) {
+      if (valParts.length > 1 && valParts[0].length > 1 && valParts[valParts.length - 1].length > 1 && valParts.length < 5) {
         return false;
       }
       return true;
@@ -51,7 +34,7 @@ export default class Sampleform extends Component {
                 type="text"
                 id="name"
                 label="Full Name"
-                onSubmit={(value) => this.handleInput('name', value)}
+                onSubmit={(value) => updateField('name', value)}
                 defaultValue={form.name}
                 validate={validateName}
                 errorMessage="Please use your full name."
@@ -59,14 +42,14 @@ export default class Sampleform extends Component {
               <EditableField
                 type="email"
                 id="email"
-                onSubmit={(value) => this.handleInput('email', value)}
+                onSubmit={(value) => updateField('email', value)}
                 defaultValue={form.email}
                 required={true}
               />
               <EditableField
                 type="dateTime"
                 label="Birthday"
-                onSubmit={(value) => this.handleInput('date', value)}
+                onSubmit={(value) => updateField('date', value)}
                 defaultValue={form.date}
               />
 
@@ -77,3 +60,9 @@ export default class Sampleform extends Component {
     );
   }
 }
+Sampleform.propTypes = {
+  updateField: PropTypes.func.isRequired,
+  form: PropTypes.object.isRequired
+};
+
+export default Sampleform;
