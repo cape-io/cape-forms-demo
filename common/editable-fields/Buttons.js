@@ -1,11 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import Icon from './Icon';
 
-export default class EditableButtons extends Component {
-  static propTypes = {
-    onClose: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired
-  }
+class EditableButtons extends Component {
+
   render() {
     const {onSubmit, onClose, disabled} = this.props;
 
@@ -32,4 +29,9 @@ export default class EditableButtons extends Component {
       </div>
     );
   }
-}
+};
+EditableButtons.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
+};
+export default EditableButtons;

@@ -3,10 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import Input from './Input'
 
 export default class Text extends Component {
-  static propTypes = {
-  }
-  static defaultProps = {
-  }
+
   handleChange(value) {
     const {onChange, validate, errorMessage, help} = this.props;
     let hasErrors = false;

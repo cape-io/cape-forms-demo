@@ -9,13 +9,7 @@ import Icon from './Icon';
 // Manage help text.
 // Bubble hasError (and value?) up.
 
-export default class EditField extends Component {
-  static propTypes = {
-    onClose: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired
-  }
-  static defaultProps = {
-  }
+class EditField extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -99,4 +93,11 @@ export default class EditField extends Component {
       </div>
     );
   }
-}
+};
+
+EditField.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
+};
+
+export default EditField;

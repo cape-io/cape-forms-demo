@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 class Head extends Component {
   // Only update when the title changes.
   render() {
-    const { css, js, meta, title } = this.props;
+    const { css, js, meta, title, ...rest } = this.props;
 
     // @TODO css: integrity, crossorigin props?
 
@@ -11,13 +11,13 @@ class Head extends Component {
       <head>
         <title>{title}</title>
         <meta charSet="utf-8" />
-        {meta.map(metaArr, i =>
+        {meta.map((metaArr, i) =>
           <meta key={'m'+i} name={metaArr[0]} content={metaArr[1]} />
         )}
-        {css.map(cssFilePath, i =>
+        {css.map((cssFilePath, i) =>
           <link key={'c'+i} rel="stylesheet" type="text/css" href={cssFilePath} />
         )}
-        {js.map(jsFilePath, i =>
+        {js.map((jsFilePath, i) =>
           <script key={'j'+i} type="text/javascript" src={jsFilePath} async defer />
         )}
       </head>

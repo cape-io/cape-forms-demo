@@ -17,7 +17,7 @@ import InitialState from './components/InitialState';
 export default function createRootComponent(initialState) {
   const store = configureStore(initialState);
 
-  class RootComponent extends Component {
+  return class RootComponent extends Component {
     // Provider is a React Component designed to be used as a wrapper of your application's root component. Its
     // purpose is to provide your redux instance to all of your application's components. How it does that does not
     // really matter to us but just to let you know, it's using React's context feature (it's undocumented so you
@@ -33,24 +33,22 @@ export default function createRootComponent(initialState) {
       // Provider needs to have as its child, a function that returns
       // the root component instead of the component itself. This is a temporary API until React 0.14 comes
       // out, to fix a React 0.13 context issue.
-      <Provider store={store}>
-        {() =>
-          <html>
-            <Head />
-            <body>
-              <Wrapper />
-              <InitialState initialState={initialState} />
-              <DebugPanel top right bottom>
-                <DevTools store={store} monitor={LogMonitor} />
-              </DebugPanel>
-            </body>
-          </html>
-        }
-      </Provider>
+      return (
+        <Provider store={store}>
+          {() =>
+            <html>
+              <Head />
+              <body>
+                <Wrapper />
+                <InitialState initialState={initialState} />
+                <DebugPanel top right bottom>
+                  <DevTools store={store} monitor={LogMonitor} />
+                </DebugPanel>
+              </body>
+            </html>
+          }
+        </Provider>
+      )
     }
-  }
-  return {
-    RootComponent,
-    store
-  }
+  };
 }

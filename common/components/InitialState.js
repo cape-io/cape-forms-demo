@@ -7,7 +7,7 @@ class InitialState extends Component {
     const jsCode = `window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};`;
 
     return (
-      <script>{jsCode}</script>
+      <script dangerouslySetInnerHTML={{__html: jsCode}}></script>
     );
   }
 }

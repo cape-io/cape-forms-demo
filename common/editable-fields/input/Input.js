@@ -5,14 +5,7 @@ import Icon from '../Icon';
 // 1. Checks for changes every 300ms. Useful for safari autocomplete.
 // 2. Also has a clear button that changes input value to empty string.
 
-export default class Input extends Component {
-  static propTypes = {
-    onChange: PropTypes.func.isRequired,
-    // Needed in place of refs.
-    id: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    value: PropTypes.string
-  }
+class Input extends Component {
 
   constructor(props) {
     super(props);
@@ -124,3 +117,12 @@ export default class Input extends Component {
     );
   }
 }
+
+Input.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  // Needed in place of refs.
+  id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string
+}
+export default Input;

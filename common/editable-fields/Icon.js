@@ -1,14 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames'
 
-export default class Icon extends Component {
-  static propTypes = {
-    symbol: PropTypes.string.isRequired,
-    className: PropTypes.string
-  }
-  static defaultProps = {
-    hidden: 'false'
-  }
+class Icon extends Component {
   render() {
     const {symbol, className, hidden} = this.props;
     const classStr = `glyphicon glyphicon-${symbol}`
@@ -20,4 +13,12 @@ export default class Icon extends Component {
       />
     );
   }
-}
+};
+Icon.propTypes = {
+  symbol: PropTypes.string.isRequired,
+  className: PropTypes.string
+};
+Icon.defaultProps = {
+  hidden: 'false'
+};
+export default Icon;

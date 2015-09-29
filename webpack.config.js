@@ -20,9 +20,27 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel'],
+      loader: 'babel',
       exclude: /node_modules/,
       include: __dirname,
+      query: {
+        optional: ['runtime'],
+        stage: 0,
+        env: {
+          development: {
+            plugins: [
+              'react-transform'
+            ],
+            extra: {
+              'react-transform': [{
+                target:  'react-transform-hmr',
+                imports: ['react'],
+                locals:  ['module']
+              }]
+            }
+          }
+        }
+      }
     }]
   }
 };

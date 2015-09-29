@@ -4,15 +4,7 @@ import classNames from 'classnames'
 
 // Editable formGroup.
 
-export default class FormGroup extends Component {
-  static propTypes = {
-    label: PropTypes.string,
-    hasErrors: PropTypes.bool,
-    required: PropTypes.bool
-  }
-  static defaultProps = {
-    hasErrors: false
-  }
+class FormGroup extends Component {
   render() {
     const {label, status, id, required, children, editable, className} = this.props;
     const cssClasses = {
@@ -39,3 +31,15 @@ export default class FormGroup extends Component {
     );
   }
 }
+
+FormGroup.propTypes = {
+  label: PropTypes.string,
+  hasErrors: PropTypes.bool,
+  required: PropTypes.bool
+};
+
+FormGroup.defaultProps = {
+  hasErrors: false
+};
+
+export default FormGroup;

@@ -6,21 +6,7 @@ import Input from './Input'
 // An email validation wrapper around text input.
 // Turns the onChange value to a full object of info. @see validateEmail().
 
-export default class InputEmail extends Component {
-  static propTypes = {
-    // key needed for validateEmail.
-    apiKey: PropTypes.string.isRequired,
-    // Function that we send a full object to.
-    onChange: PropTypes.func.isRequired,
-    value: PropTypes.string
-  }
-
-  static defaultProps = {
-    apiKey: 'pubkey-1j0fplia8gwp3t6ibvr20t325us652y5',
-    placeholder: 'you@domain.com',
-    type: 'email'
-  }
-
+class InputEmail extends Component {
   // Check validation on value.
   componentDidMount() {
     const {apiKey, value} = this.props;
@@ -62,3 +48,18 @@ export default class InputEmail extends Component {
     );
   }
 }
+InputEmail.propTypes = {
+  // key needed for validateEmail.
+  apiKey: PropTypes.string.isRequired,
+  // Function that we send a full object to.
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string
+}
+
+InputEmail.defaultProps = {
+  apiKey: 'pubkey-1j0fplia8gwp3t6ibvr20t325us652y5',
+  placeholder: 'you@domain.com',
+  type: 'email'
+}
+
+export default InputEmail;

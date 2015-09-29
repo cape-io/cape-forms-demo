@@ -22,9 +22,10 @@ const compiler = webpack(webpackConfig);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
 
+app.use(Express.static('public'));
 // This is fired every time the server side receives a request
-app.use(express.static('public'));
 app.use(handleRender);
+
 
 function handleRender(req, res) {
   // Query our mock API asynchronously
@@ -57,7 +58,7 @@ function handleRender(req, res) {
       }
     };
 
-    const {RootComponent, store} = createRootComponent(initialState);
+    const RootComponent = createRootComponent(initialState);
 
     // Render the component to a string.
     const html = React.renderToString(<RootComponent />);

@@ -4,12 +4,7 @@ import classNames from 'classnames'
 // A simple span that displays help text.
 // Optional class added when help is related to an error.
 
-export default class Help extends Component {
-  static propTypes = {
-    help: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    hasErrors: PropTypes.bool
-  }
+class Help extends Component {
 
   render() {
     const {help, hasErrors, id, suggestion, onChange} = this.props;
@@ -42,3 +37,11 @@ export default class Help extends Component {
     );
   }
 }
+
+Help.propTypes = {
+  help: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  hasErrors: PropTypes.bool
+}
+
+export default Help;

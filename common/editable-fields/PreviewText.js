@@ -1,12 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames'
 
-export default class PreviewText extends Component {
-  static propTypes = {
-    onClick: PropTypes.func.isRequired,
-    defaultValue: PropTypes.string,
-    editable: PropTypes.bool
-  }
+class PreviewText extends Component {
   // static defaultProps = {
   // }
 
@@ -40,3 +35,11 @@ export default class PreviewText extends Component {
     );
   }
 }
+
+PreviewText.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  defaultValue: PropTypes.string,
+  editable: PropTypes.bool
+};
+
+export default PreviewText;

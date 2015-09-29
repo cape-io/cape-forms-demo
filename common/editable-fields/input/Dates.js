@@ -3,11 +3,6 @@ import React, { Component, PropTypes } from 'react';
 import DateTimeField from 'react-bootstrap-datetimepicker'
 
 export default class Dates extends Component {
-  static propTypes = {
-
-  }
-  static defaultProps = {
-  }
   handleChange(value) {
     const {onChange} = this.props;
     const hasErrors = isNaN(value);
