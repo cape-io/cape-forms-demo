@@ -10,11 +10,9 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config';
 
 import React from 'react';
-import { Provider } from 'react-redux';
 
-import configureStore from '../common/store/configureStore';
-import App from '../common/containers/App';
 import { fetchCounter } from '../common/api/counter';
+import createRootComponent from '../common';
 
 const app = new Express();
 const port = 3000;
@@ -25,6 +23,7 @@ app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig
 app.use(webpackHotMiddleware(compiler));
 
 // This is fired every time the server side receives a request
+app.use(express.static('public'));
 app.use(handleRender);
 
 function handleRender(req, res) {
@@ -32,10 +31,11 @@ function handleRender(req, res) {
   fetchCounter(apiResult => {
     // Read the counter from the request, if provided
     const params = qs.parse(req.query);
-    const counter = parseInt(params.counter, 10) || apiResult || 0;
+    const counter = parseInt(params.counter, 10) || apiResult || 23;
 
     // Compile an initial state
     const initialState = {
+      counter,
       form: {
         email: 'kb@ookb.co',
       },
@@ -57,39 +57,23 @@ function handleRender(req, res) {
       }
     };
 
-    // Create a new Redux store instance
-    const store = configureStore(initialState);
+    const {RootComponent, store} = createRootComponent(initialState);
 
-    // Render the component to a string
-    const html = React.renderToString(
-      <Provider store={store}>
-        { () => <App/> }
-      </Provider>);
+    // Render the component to a string.
+    const html = React.renderToString(<RootComponent />);
 
-    // Grab the initial state from our Redux store
-    const finalState = store.getState();
+    // Grab the initial state from our Redux store.
+    // This is what is actually sent down to the components.
+    // const finalState = store.getState();
 
     // Send the rendered page back to the client
-    res.send(renderFullPage(html, finalState));
+    res.send(renderFullPage(html));
   });
 }
 
-function renderFullPage(html, initialState) {
-  return `
-    <!doctype html>
-    <html>
-      <head>
-        <title>Redux Universal Example</title>
-      </head>
-      <body>
-        <div id="app">${html}</div>
-        <script>
-          window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
-        </script>
-        <script src="/static/bundle.js"></script>
-      </body>
-    </html>
-    `;
+function renderFullPage(html) {
+  const doctype = "<!doctype html>\n";
+  return doctype+html;
 }
 
 app.listen(port, (error) => {

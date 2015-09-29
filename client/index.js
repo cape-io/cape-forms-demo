@@ -3,11 +3,11 @@ import React from 'react';
 
 const initialState = window.__INITIAL_STATE__;
 
-const rootElement = document;//.getElementById('root');
+import createRootComponent from '../common';
 
-import createRootComponent from '../common/containers'
+const {RootComponent} = createRootComponent(initialState);
 
 React.render(
-  createRootComponent(initialState),
-  rootElement
+  <RootComponent />,
+  document
 );

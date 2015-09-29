@@ -9,15 +9,15 @@ import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 import configureStore from './store/configureStore';
 
-import Head from './Head';
-import Wrapper from './Wrapper';
+import Head from './containers/Head';
+import Wrapper from './containers/Wrapper';
 
-import InitialState from '../components/InitialState';
+import InitialState from './components/InitialState';
 
 export default function createRootComponent(initialState) {
   const store = configureStore(initialState);
 
-  return class Page extends Component {
+  class RootComponent extends Component {
     // Provider is a React Component designed to be used as a wrapper of your application's root component. Its
     // purpose is to provide your redux instance to all of your application's components. How it does that does not
     // really matter to us but just to let you know, it's using React's context feature (it's undocumented so you
@@ -48,5 +48,9 @@ export default function createRootComponent(initialState) {
         }
       </Provider>
     }
+  }
+  return {
+    RootComponent,
+    store
   }
 }
