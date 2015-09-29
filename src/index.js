@@ -4,6 +4,8 @@ import React from 'react';
 // (https://github.com/gaearon/react-redux)
 // brings to us: the Provider component.
 import { Provider } from 'react-redux';
+// React components for Redux DevTools
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 import App from './containers/App';
 import configureStore from './store/configureStore';
@@ -26,8 +28,13 @@ React.render(
   // Provider needs to have as its child, a function that returns
   // the root component instead of the component itself. This is a temporary API until React 0.14 comes
   // out, to fix a React 0.13 context issue.
-  <Provider store={store}>
-    {() => <App />}
-  </Provider>,
+  <div>
+    <Provider store={store}>
+      {() => <App />}
+    </Provider>
+    <DebugPanel top right bottom>
+      <DevTools store={store} monitor={LogMonitor} />
+    </DebugPanel>
+  </div>,
   document.getElementById('root')
 );
