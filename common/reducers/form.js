@@ -1,11 +1,21 @@
-import { UPDATE_FIELD } from '../actions/form';
+import { UPDATE_FIELD, SET_EDITING } from '../actions/form';
 
-export default function form(state = {}, action) {
+const defaults = {
+  editing: null,
+  fields: [],
+  title: 'Form',
+  help: 'Click to edit',
+  values: {}
+}
+
+export default function form(state = defaults, action) {
   switch (action.type) {
   case UPDATE_FIELD:
-    const fieldUpdate = {};
-    fieldUpdate[action.payload.id] = action.payload.value;
-    return {...state, ...fieldUpdate};
+    const newValues = {values: state.values};
+    newValues.values[action.payload.id] = action.payload.value;
+    return {...state, ...newValues};
+  case SET_EDITING:
+    return {...state, editing: action.payload}
   default:
     return state;
   }

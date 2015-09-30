@@ -38,7 +38,36 @@ function handleRender(req, res) {
     const initialState = {
       counter,
       form: {
-        email: 'kb@ookb.co',
+        editing: null,
+        fields: [
+          {
+            type: 'text',
+            id: 'id',
+            label: 'User ID',
+            editable: false
+          },
+          {
+            type: 'text',
+            id: 'name',
+            label: 'Full Name'
+          },
+          {
+            type: 'email',
+            id: 'email',
+            label: 'Email',
+            required: true
+          },
+          {
+            type: 'dateTime',
+            id: 'birthday',
+            label: 'Birthday'
+          }
+        ],
+        title: 'Profile',
+        values: {
+          id: 'kb',
+          email: 'kb@ookb.co'
+        }
       },
       head: {
         title: 'CAPE Forms Demo',

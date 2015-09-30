@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 class Counter extends Component {
   constructor(props) {
     super(props);
-    this.interval = setInterval(() => this.tick(), 15000);
+    this.interval = setInterval(() => this.tick(), 30000);
   }
 
   tick() {

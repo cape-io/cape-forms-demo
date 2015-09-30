@@ -6,7 +6,9 @@ class Sampleform extends Component {
 
   render() {
     const {form, updateField} = this.props;
-    const txt = JSON.stringify(form);
+    const {values, fields, editing, help, title} = form;
+
+    const txt = JSON.stringify(values, null, 2);
     const validateName = function(val) {
       const valParts = val.split(' ');
       if (valParts.length > 1 && valParts[0].length > 1 && valParts[valParts.length - 1].length > 1 && valParts.length < 5) {
@@ -19,15 +21,15 @@ class Sampleform extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="sample-output">{txt}</div>
-            <h2>Profile</h2>
-            <p>Click to edit</p>
+            {title ? <h2>{title}</h2> : false}
+            {help ? <p>{help}</p> : false}
             <div className="nice-form col-md-12">
 
               <EditableField
                 type="text"
                 id="id"
                 label="User Id"
-                defaultValue={form.id}
+                defaultValue={values.id}
                 editable={false}
               />
               <EditableField
@@ -35,7 +37,7 @@ class Sampleform extends Component {
                 id="name"
                 label="Full Name"
                 onSubmit={(value) => updateField('name', value)}
-                defaultValue={form.name}
+                defaultValue={values.name}
                 validate={validateName}
                 errorMessage="Please use your full name."
               />
@@ -43,14 +45,14 @@ class Sampleform extends Component {
                 type="email"
                 id="email"
                 onSubmit={(value) => updateField('email', value)}
-                defaultValue={form.email}
+                defaultValue={values.email}
                 required={true}
               />
               <EditableField
                 type="dateTime"
                 label="Birthday"
                 onSubmit={(value) => updateField('date', value)}
-                defaultValue={form.date}
+                defaultValue={values.date}
               />
 
             </div>
