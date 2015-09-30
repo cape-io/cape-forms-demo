@@ -57,6 +57,7 @@
     "mocha-jsdom": "^1.0.0",
     "node-libs-browser": "^0.5.2",
     "qs": "^4.0.0",
+    "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.0",
     "redbox-react": "^1.1.0",
     "redux-devtools": "^2.1.5",

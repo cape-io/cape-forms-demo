@@ -32,11 +32,16 @@ module.exports = {
               'react-transform'
             ],
             extra: {
-              'react-transform': [{
-                target:  'react-transform-hmr',
-                imports: ['react'],
-                locals:  ['module']
-              }]
+              "react-transform": {
+                "transforms": [{
+                  "transform": "react-transform-hmr",
+                  "imports": ["react"],
+                  "locals": ["module"]
+                }, {
+                  "transform": "react-transform-catch-errors",
+                  "imports": ["react", "redbox-react"]
+                }]
+              }
             }
           }
         }
