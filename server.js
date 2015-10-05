@@ -1,17 +1,22 @@
 var path = require('path');
 var express = require('express');
 var webpack = require('webpack');
-var config = require('./webpack.config');
+var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
+
+var webpackConfig = require('./webpack.config');
 
 var app = express();
-var compiler = webpack(config);
+var port = 3000;
+var compiler = webpack(webpackConfig);
 
-app.use(require('webpack-dev-middleware')(compiler, {
-    noInfo: true,
-    publicPath: config.output.publicPath
+// Use this middleware to set up hot module reloading via webpack.
+app.use(webpackDevMiddleware(compiler, {
+  noInfo: true,
+  publicPath: webpackConfig.output.publicPath
 }));
 
-app.use(require('webpack-hot-middleware')(compiler));
+app.use(webpackHotMiddleware(compiler));
 
 app.use(express.static('public'));
 
@@ -19,11 +24,12 @@ app.use(express.static('public'));
 //   res.sendFile(path.join(__dirname, 'index.html'));
 // });
 
-app.listen(3000, 'localhost', function (err) {
+app.listen(port, 'localhost', function (err) {
   if (err) {
     console.log(err);
     return;
   }
-
-  console.log('Listening at http://localhost:3000');
+  else {
+    console.log('Listening at http://localhost:'+port);
+  }
 });

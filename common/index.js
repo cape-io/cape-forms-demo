@@ -7,12 +7,10 @@ import { Provider } from 'react-redux';
 // React components for Redux DevTools
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
-import configureStore from './store/configureStore';
+import configureStore from './create';
 
 import Head from './containers/Head';
 import Wrapper from './containers/Wrapper';
-
-import InitialState from './components/InitialState';
 
 export default function createRootComponent(initialState) {
   const store = configureStore(initialState);
@@ -37,10 +35,9 @@ export default function createRootComponent(initialState) {
         <Provider store={store}>
           {() =>
             <html>
-              <Head />
+              <Head initialState={initialState} />
               <body>
                 <Wrapper />
-                <InitialState initialState={initialState} />
                 <DebugPanel top right bottom>
                   <DevTools store={store} monitor={LogMonitor} />
                 </DebugPanel>

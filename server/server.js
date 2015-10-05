@@ -19,13 +19,15 @@ const port = 3000;
 
 // Use this middleware to set up hot module reloading via webpack.
 const compiler = webpack(webpackConfig);
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+app.use(webpackDevMiddleware(compiler, {
+  noInfo: true,
+  publicPath: webpackConfig.output.publicPath
+}));
 app.use(webpackHotMiddleware(compiler));
 
 app.use(Express.static('public'));
 // This is fired every time the server side receives a request
 app.use(handleRender);
-
 
 function handleRender(req, res) {
   // Query our mock API asynchronously
@@ -37,6 +39,9 @@ function handleRender(req, res) {
     // Compile an initial state
     const initialState = {
       counter,
+      db: {
+        title: 'CAPE.io'
+      },
       form: {
         editing: null,
         fields: [
@@ -47,9 +52,8 @@ function handleRender(req, res) {
             editable: false
           },
           {
-            type: 'text',
-            id: 'name',
-            label: 'Full Name'
+            type: 'fullName',
+            id: 'name'
           },
           {
             type: 'email',
@@ -69,8 +73,7 @@ function handleRender(req, res) {
           email: 'kb@ookb.co'
         }
       },
-      head: {
-        title: 'CAPE Forms Demo',
+      theme: {
         css: [
           'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
           'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css',

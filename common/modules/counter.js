@@ -1,15 +1,28 @@
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+const INCREMENT = 'counter/INCREMENT';
+const DECREMENT = 'counter/DECREMENT';
+
+const initialState = 0;
+
+export default function reducer(state = initialState, action = {}) {
+  switch (action.type) {
+    case INCREMENT:
+      return state + 1;
+    case DECREMENT:
+      return state - 1;
+    default:
+      return state;
+  }
+}
 
 export function increment() {
   return {
-    type: INCREMENT_COUNTER
+    type: INCREMENT
   };
 }
 
 export function decrement() {
   return {
-    type: DECREMENT_COUNTER
+    type: DECREMENT
   };
 }
 

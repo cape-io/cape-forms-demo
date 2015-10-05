@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
 
-import Head from '../components/Head';
+import Header from '../components/Header';
 
 function mapStateToProps(state) {
   return {
     title: state.db.title,
-    ...state.theme
   }
 }
 
-export default connect(mapStateToProps)(Head);
+export default connect(mapStateToProps)(Header);

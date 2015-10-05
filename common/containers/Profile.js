@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import SampleForm from '../components/SampleForm';
-import * as FormActions from '../actions/form';
+import * as FormActions from '../modules/form';
 
 // This is where we define computed fields (reselect module) or make other changes.
 // Which part of the Redux global state does our component want to receive as props?

@@ -1,9 +1,23 @@
 import React, { Component, PropTypes } from 'react';
 
+import InitialState from './InitialState';
+
 class Head extends Component {
   // Only update when the title changes.
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.title !== this.props.title;
+  }
+  componentWillReceiveProps(nextProps) {
+    if (this.isMounted()) {
+      const oldTitle = this.state.title;
+      const newTitle = nextProps.title;
+      if (newTitle && newTitle !== oldTitle) {
+        document.title = newTitle;
+      }
+    }
+  }
   render() {
-    const { css, js, meta, title, ...rest } = this.props;
+    const { css, js, meta, title, initialState, ...rest } = this.props;
 
     // @TODO css: integrity, crossorigin props?
 
@@ -17,6 +31,7 @@ class Head extends Component {
         {css.map((cssFilePath, i) =>
           <link key={'c'+i} rel="stylesheet" type="text/css" href={cssFilePath} />
         )}
+        <InitialState initialState={initialState} />
         {js.map((jsFilePath, i) =>
           <script key={'j'+i} type="text/javascript" src={jsFilePath} async defer />
         )}

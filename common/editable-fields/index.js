@@ -5,6 +5,14 @@ import FormGroup from './FormGroup';
 import PreviewText from './PreviewText';
 import EditField from './EditField';
 
+const validateName = function(val) {
+  const valParts = val.split(' ');
+  if (valParts.length > 1 && valParts[0].length > 1 && valParts[valParts.length - 1].length > 1 && valParts.length < 5) {
+    return false;
+  }
+  return true;
+};
+
 const typeDefaults = {
   email: {
     errorMessage: 'Invalid email. Please check and try again.',
@@ -12,6 +20,12 @@ const typeDefaults = {
     id: 'email',
     label: 'Email',
     placeholder: 'you@domain.com'
+  },
+  fullName: {
+    id: 'name',
+    label: 'Full Name',
+    errorMessage: 'Please use your full name.',
+    validate: validateName
   },
   dateTime: {
     label: 'Date & Time'
@@ -89,6 +103,7 @@ EditableField.propTypes = {
   type: PropTypes.oneOf([
       'email',
       'dateTime',
+      'fullName',
       'text'
     ]).isRequired,
   editable: PropTypes.bool,
