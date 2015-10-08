@@ -33,17 +33,15 @@ export default function createRootComponent(initialState) {
       // out, to fix a React 0.13 context issue.
       return (
         <Provider store={store}>
-          {() =>
-            <html>
-              <Head initialState={initialState} />
-              <body>
-                <Wrapper />
-                <DebugPanel top right bottom>
-                  <DevTools store={store} monitor={LogMonitor} />
-                </DebugPanel>
-              </body>
-            </html>
-          }
+          <html>
+            <Head initialState={initialState} />
+            <body>
+              <Wrapper />
+              <DebugPanel top right bottom>
+                <DevTools store={store} monitor={LogMonitor} />
+              </DebugPanel>
+            </body>
+          </html>
         </Provider>
       )
     }

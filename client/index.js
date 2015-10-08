@@ -1,5 +1,8 @@
 import 'babel-core/polyfill';
 import React from 'react';
+import ReactDOM from 'react-dom';
+
+import createRootComponent from '../common';
 
 const initialState = window.__INITIAL_STATE__;
 if (!initialState) {
@@ -7,11 +10,9 @@ if (!initialState) {
   throw new Error('Missing __INITIAL_STATE__');
 }
 
-import createRootComponent from '../common';
-
 const RootComponent = createRootComponent(initialState);
 
-React.render(
+ReactDOM.render(
   <RootComponent />,
   document
 );

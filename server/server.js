@@ -1,5 +1,3 @@
-/* eslint-disable no-console, no-use-before-define */
-
 import path from 'path';
 import Express from 'express';
 import qs from 'qs';
@@ -10,6 +8,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config';
 
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 
 import { fetchCounter } from '../common/api/counter';
 import createRootComponent from '../common';
@@ -25,7 +24,12 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 
+app.get('/kai', function (req, res) {
+  res.send('GET request to the kai');
+});
+
 app.use(Express.static('public'));
+
 // This is fired every time the server side receives a request
 app.use(handleRender);
 
@@ -93,7 +97,7 @@ function handleRender(req, res) {
     const RootComponent = createRootComponent(initialState);
 
     // Render the component to a string.
-    const html = React.renderToString(<RootComponent />);
+    const html = ReactDOMServer.renderToString(<RootComponent />);
 
     // Grab the initial state from our Redux store.
     // This is what is actually sent down to the components.
