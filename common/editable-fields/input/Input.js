@@ -7,12 +7,10 @@ import Icon from '../Icon';
 
 class Input extends Component {
 
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     // When initialized trigger the tick function every interval.
     this.interval = setInterval(() => this.tick(), 300);
   }
-
   componentWillUnmount() {
     clearInterval(this.interval);
   }

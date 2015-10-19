@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 import Counter from './Counter';
 import Header from './Header';
+import Login from './Login';
 import Profile from './Profile';
 
 export default class Wrapper extends Component {
@@ -11,6 +12,7 @@ export default class Wrapper extends Component {
         <Header>
           <Counter />
         </Header>
+        <Login />
         <Profile />
       </div>
     )
